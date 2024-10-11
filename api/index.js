@@ -107,6 +107,10 @@ app.get('/api/posts', async (req, res) => {
         res.status(500).json({ error: "Failed to fetch posts", details: error.message });
     }
 });
+const PORT = process.env.PORT || 3000; // Fallback for local development
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 
 // Export the app for Vercel
 export default app;
